@@ -51,6 +51,8 @@ SauceDemo_tests/
 
 ## Test Design – Automated Scenarios
 
+Manual test cases: https://docs.google.com/spreadsheets/d/1AkH3iHy5zZho2_tLaqiOiSon_txNLuCVoO9AgblE32g/edit?usp=sharing
+
 From the set of **15 manual test cases**, the following **5 were automated**:
 
 | ID | Description |
