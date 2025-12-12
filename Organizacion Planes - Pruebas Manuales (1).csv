@@ -1,148 +1,0 @@
-,,,,,,,
-,"Datos típicos de SauceDemo:
-
-URL: https://www.saucedemo.com
-
-Usuarios válidos: standard_user, locked_out_user, problem_user.
-
-Password para todos: secret_sauce
-",,,,,,
-,,,,,,,
-,Id,Titulo,Módulo que se prueba,Precondiciones,Pasos,Resultado esperado,Automatización 
-,SD_TC_01,"Login exitoso y compra completa de un producto (Happy path completo)
-",Login / Catálogo / Checkout,"Usuario registrado con credenciales válidas: standard_user / secret_sauce.
-
-Navegador abierto en la página de login de SauceDemo.","1. Navegar a https://www.saucedemo.com.
-2. Ingresar standard_user en el campo Username.
-3. Ingresar secret_sauce en el campo Password.
-4. Hacer clic en el botón Login.
-5. Verificar que se muestra la página de productos.
-6. Sin cambiar filtros, seleccionar el producto Sauce Labs Backpack haciendo clic en Add to cart.
-7. Hacer clic en el ícono del carrito.
-8. Verificar que el producto Sauce Labs Backpack está en el carrito.
-9. Hacer clic en el botón Checkout.
-10. En la pantalla Checkout: Your Information, ingresar nombre, apellido y código postal válidos.
-11. Hacer clic en Continue.
-12. Verificar que en la pantalla Checkout: Overview se muestra el producto correcto y el total calculado.
-13. Hacer clic en Finish.
-14. Verificar que se muestre el mensaje de confirmación de compra (por ejemplo: Thank you for your order!).","El usuario puede loguearse correctamente, agregar un producto, completar el formulario, finalizar la compra y ver el mensaje de confirmación.",TRUE
-,SD_TC_02,Login y compra con filtro “Price (low to high)”,Catálogo / Filtros / Checkout,"Usuario standard_user activo.","1. Iniciar sesión con standard_user / secret_sauce.
-2. En la página de productos, abrir el combo de ordenamiento.
-3. Seleccionar el filtro Price (low to high).
-4. Verificar que la lista se muestra ordenada de menor a mayor precio.
-5. Agregar al carrito el producto más barato (primer producto después del filtro).
-6. Ir al carrito, hacer checkout.
-7. Completar los datos personales válidos.
-8. Finalizar la compra.
-","Los productos están correctamente ordenados por precio (ascendente).
-
-La compra del producto más barato se completa exitosamente.",TRUE
-,SD_TC_03,"Login y compra con filtro “Price (high to low)”",Catálogo / Filtros,Usuario standard_user con credenciales válidas y navegador abierto en https://www.saucedemo.com.,"1. Iniciar sesión con credenciales válidas.
-2. Aplicar filtro Price (high to low).
-3. Verificar que la lista está ordenada de mayor a menor precio.
-4. Agregar el primer producto mostrado al carrito.
-5. Ir al carrito y verificar el producto seleccionado.
-6. Completar checkout (datos válidos) y finalizar.","Orden correcto por precio descendente.
-
-La compra del producto más caro se completa correctamente.",FALSE
-,SD_TC_04,Login y compra con filtro “Name (Z to A)”,Catálogo / Filtros,Usuario standard_user con credenciales válidas y navegador abierto en https://www.saucedemo.com.,"1. Iniciar sesión.
-2. Seleccionar filtro Name (Z to A).
-3. Verificar orden alfabético descendente por nombre de producto.
-4. Agregar al carrito el primer producto de la lista.
-5. Finalizar checkout completo.","Productos ordenados por nombre de Z a A.
-
-La compra del producto seleccionado finaliza correctamente.",FALSE
-,SD_TC_05,"Login exitoso, selección de múltiples productos y revisión en overview",Carrito / Checkout,Usuario standard_user con credenciales válidas y navegador abierto en https://www.saucedemo.com.,"1. Iniciar sesión.
-2. Agregar al carrito dos productos diferentes.
-3. Ir al carrito y verificar que se muestren ambos productos.
-4. Hacer clic en Checkout.
-5. Completar datos personales válidos y continuar.
-6. En Checkout: Overview, verificar:
-
-Nombres de los dos productos.
-Cantidad (1 cada uno).
-Suma de precios de ítems.
-Tax y Total.
-","Toda la información de los productos y precios se muestra correctamente en la pantalla de overview.",FALSE
-,SD_TC_06,Login con usuario bloqueado (locked_out_user),Login,"Usuario locked_out_user existente pero bloqueado.","1. Navegar a la página de login.
-2. Ingresar locked_out_user como username.
-3. Ingresar secret_sauce como password.
-4. Hacer clic en Login.","El login es rechazado.
-
-Se muestra un mensaje de error indicando que el usuario está bloqueado (por ejemplo: Sorry, this user has been locked out.).
-
-El usuario permanece en la pantalla de login.",TRUE
-,SD_TC_07,"Login con credenciales inválidas",Login,"Navegador en la página de login.
-","1. Ingresar un usuario inexistente, por ejemplo fake_user.
-2. Ingresar una contraseña incorrecta, por ejemplo wrong_password.
-3. Hacer clic en Login.","El sistema rechaza el acceso.
-
-Se muestra un mensaje de error genérico de credenciales inválidas.
-
-No se accede a la página de productos.",FALSE
-,SD_TC_08,Login con campos vacíos,Login,"Página de login abierta.","1. Dejar los campos Username y Password vacíos.
-2. Hacer clic en Login.","El sistema no permite el login.
-
-Se muestra un mensaje de error indicando que falta información (por ejemplo: Username is required).
-",TRUE
-,SD_TC_09,"Agregar y eliminar producto del carrito antes de checkout",Carrito,"Usuario standard_user con acceso.
-","1. Iniciar sesión.
-2. Agregar un producto al carrito.
-3. Verificar que el ícono del carrito muestra “1”.
-4. Entrar al carrito.
-5. Hacer clic en Remove sobre el producto.
-6. Verificar que el carrito queda vacío (no ítems listados y badge desaparece).","El producto se elimina correctamente del carrito.
-
-El estado visual del carrito refleja 0 productos.
-",FALSE
-,SD_TC_10,"Checkout con campo First Name vacío",Checkout (Your Information),"Usuario logueado.
-
-Al menos un producto en el carrito.
-
-Usuario en la pantalla Checkout: Your Information.","1. Dejar vacío el campo First Name.
-2. Ingresar un valor válido en Last Name.
-3. Ingresar un valor válido en Postal Code.
-4. Hacer clic en Continue.","El sistema no permite continuar al overview.
-
-Se muestra un mensaje de error indicando que el nombre es requerido (Error: First Name is required).",FALSE
-,SD_TC_11,"Checkout con campo Last Name vacío",Checkout (Your Information),"Usuario logueado como standard_user, al menos un producto en el carrito y usuario ubicado en la pantalla ""Checkout: Your Information""","1. Ingresar un valor válido en First Name.
-2. Dejar vacío el campo Last Name.
-3. Ingresar un valor válido en Postal Code.
-4. Hacer clic en Continue.","No avanza a Checkout: Overview.
-
-Muestra error indicando que el apellido es requerido.",FALSE
-,SD_TC_12,Checkout con campo Postal Code vacío,Checkout (Your Information),"Usuario logueado con producto en carrito.
-
-En Checkout: Your Information.","1. Ingresar valores válidos en First Name y Last Name.
-2. Dejar vacío Postal Code.
-3. Hacer clic en Continue.","No se continúa al overview.
-
-El sistema muestra un mensaje de error indicando que el código postal es requerido.
-",TRUE
-,SD_TC_13,Verificar botón “Cancel” en pantalla de información de checkout,Checkout (Your Information/cancel),"Usuario logueado, producto en carrito.
-
-En pantalla Checkout: Your Information.","1. Hacer clic en el botón Cancel.
-2. Observar la página resultante.","El usuario es redirigido de vuelta al carrito de compras.
-
-El producto sigue presente en el carrito.
-
-",FALSE
-,SD_TC_14,"Verificar navegación del botón “Back to products” en detalle de un producto",Catálogo / Detalle de producto,"Usuario logueado (standard_user).
-
-En página de productos.","1. Hacer clic sobre el nombre de un producto para ver sus detalles.
-2. Verificar que se muestra la página de detalle.
-3. Hacer clic en el botón Back to products.","El sistema regresa a la página de listado de productos.
-
-El filtro seleccionado se mantiene (si se había aplicado alguno).",FALSE
-,SD_TC_15,Finalizar compra y verificar limpieza del carrito tras el checkout,Checkout / Carrito,"Usuario logueado.
-
-Al menos un producto agregado al carrito.","1. Ir al carrito.
-2. Iniciar proceso de checkout.
-3. Completar datos personales válidos.
-4. Continuar y finalizar con Finish.
-5. Hacer clic en el botón para volver a productos (si existe, p.e. Back Home).
-6. Verificar el ícono del carrito.","La compra se muestra como completada.
-
-Al volver a la página de productos, el ícono del carrito muestra 0 ítems (sin badge).
-
-Si se entra a la página del carrito, no hay productos listados.",FALSE
