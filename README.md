@@ -28,7 +28,7 @@ Automated testing project for the SauceDemo webshop using:
 
 ```
 
-saucedemo-qa-automation/
+SauceDemo_tests/
 │
 ├── pom.xml
 ├── README.md
@@ -75,8 +75,8 @@ src/test/resources/features/purchase_flow.feature
 
 ### **1️⃣ Clone the repository**
 ```bash
-git clone https://github.com/<your-user>/saucedemo-qa-automation.git
-cd saucedemo-qa-automation
+git clone https://github.com/mirianosorio1/SauceDemo_tests.git
+cd SauceDemo_test
 ````
 
 ### **2️⃣ Run all tests**
@@ -182,7 +182,7 @@ Scenario: Successful purchase of one product
 
 Quality Assurance Engineer
 
-GitHub: [https://github.com/](https://github.com/)<your-user>
+GitHub: [https://github.com/](https://github.com/mirianosorio1)
 Email: [mirianosorio1@gmail.com](mailto:mirianosorio1@gmail.com)
 
 ---
